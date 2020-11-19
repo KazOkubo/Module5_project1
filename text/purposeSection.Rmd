@@ -1,0 +1,5 @@
+## Purpose
+
+The "weather check" dataset that was used for the ["Where People Go To Check The Weather"](https://fivethirtyeight.com/features/weather-forecast-news-app-habits/) article, is available through the R package [`fivethirtyeight`](https://cran.r-project.org/web/packages/fivethirtyeight/index.html). Using this dataset, this article summarizes the weather source preferences for the `r params$region` Region of the United States by gender.
+
+For our summary presented here, a subset of the original weather check dataset was extracted to only include responses with no missing data and only included respondents from the `r params$region` region of the US. The data subset used for our summary had `r nrow(sdat)` respondents.

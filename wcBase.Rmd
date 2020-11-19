@@ -1,0 +1,59 @@
+---
+title: "Weather Check Preferences in the United States"
+subtitle: Summary Report For the `r params$region` Region
+author: 'Author: Kazuki Okubo'
+date: "`r format( Sys.Date(), '%A, %B %d, %Y' )`"
+output:
+  html_document: default
+params:
+  region:
+    label: "Region:"
+    value: Mountain
+    input: select
+    choices: ["East North Central","East South Central", 
+              "Middle Atlantic","Mountain", "New England", 
+              "Pacific","South Atlantic", "West North Central",
+              "West South Central"]
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::read_chunk("code/setup.R")
+```
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+```
+
+```{r loadData}
+```
+
+<center><hr>
+![](images/sunstar.png){width=50}
+![](images/sunstar.png){width=50}
+![](images/sunstar.png){width=50}
+![](images/sunstar.png){width=50}
+![](images/sunstar.png){width=50}
+<hr></center>
+
+```{r child="text/backgroundSection.Rmd"}
+```
+
+```{r child="text/purposeSection.Rmd"}
+```
+
+## Demographics of Survey Respondents in a Merged Table
+
+This section is provided as an example of how to merge the three demographic summary tables for the `r nrow(sdat)` survey respondents above into a single merged table.
+
+```{r makeTable, code=readLines("code/makeTable.R")}
+```
+
+## Weather Source Preference by Gender
+
+Finally, here is a breakdown of the `r nrow(sdat)` survey respondents for the `r params$region` region of the US on how they check their daily weather by gender.
+
+```{r}
+knitr::read_chunk("code/makeCharts.R")
+```
+
+```{r makeCharts}
+```
